@@ -10,8 +10,8 @@ const useGlobalStore = create((set) => ({
   },
   setPatientsData: (data) => {
     set((state) => ({
-        patientsData: data,
-        patients: data,
+      patientsData: data,
+      patients: data,
     }));
   },
   searchPatient: (name) => {
@@ -46,7 +46,7 @@ const useGlobalStore = create((set) => ({
         return p;
       }),
     }));
-  }
+  },
 }));
 
 export default useGlobalStore;

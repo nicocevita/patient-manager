@@ -5,9 +5,17 @@ import { ReactComponent as ChevronUp } from "../assets/chevronUp.svg";
 import { ReactComponent as TrashCan } from "../assets/trashCan.svg";
 import { ReactComponent as Edit } from "../assets/edit.svg";
 
-const Card = ({ name, avatar, description, website, id, setOpen}) => {
+const Card = ({
+  name,
+  avatar,
+  description,
+  website,
+  id,
+  setOpen,
+  setModalDeleteOpen,
+}) => {
   const [isExpanded, setExpanded] = React.useState(false);
-  const {setpatientInitialValue} = useGlobalStore();
+  const { setpatientInitialValue } = useGlobalStore();
 
   const toggleExpanded = () => {
     setExpanded(!isExpanded);
@@ -31,13 +39,28 @@ const Card = ({ name, avatar, description, website, id, setOpen}) => {
           <div className="w-8 m-auto" onClick={toggleExpanded}>
             {isExpanded ? <ChevronDown /> : <ChevronUp />}
           </div>
-          <div className="w-8 ml-5 m-auto" onClick={() => {
-            setOpen(true);
-            setpatientInitialValue({name, description, website, id, avatar});
-          }}>
+          <div
+            className="w-8 ml-5 m-auto"
+            onClick={() => {
+              setOpen(true);
+              setpatientInitialValue({
+                name,
+                description,
+                website,
+                id,
+                avatar,
+              });
+            }}
+          >
             <Edit />
           </div>
-          <div className="w-8 ml-5 mr-2 m-auto" >
+          <div
+            className="w-8 ml-5 mr-2 m-auto"
+            onClick={() => {
+              setpatientInitialValue({ id });
+              setModalDeleteOpen(true);
+            }}
+          >
             <TrashCan />
           </div>
         </div>

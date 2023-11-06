@@ -1,10 +1,9 @@
 import React from "react";
 import { ReactComponent as SearchIcon } from "../assets/search.svg";
-import  useGlobalStore from "../store/useGlobalStore"
+import useGlobalStore from "../store/useGlobalStore";
 
 const Search = () => {
-
-  const {searchPatient} = useGlobalStore();
+  const { searchPatient } = useGlobalStore();
 
   return (
     <div class="flex">

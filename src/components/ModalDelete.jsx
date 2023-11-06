@@ -3,9 +3,8 @@ import React from "react";
 const ModalDelete = ({ isOpen, onClose, onDelete }) => {
   return (
     isOpen && (
-<div
-      className="absolute top-0 left-0 w-full h-full bg-gray-900 bg-opacity-50 flex justify-center items-center"
-    >        <div className="relative w-auto max-w-3xl mx-auto my-6">
+      <div className="absolute top-0 left-0 w-full h-full bg-gray-900 bg-opacity-50 flex justify-center items-center">
+        <div className="relative w-auto max-w-3xl mx-auto my-6">
           <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
             <div className="relative p-6 flex-auto">
               <h3 className="text-xl font-semibold">Confirmation delete</h3>

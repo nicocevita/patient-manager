@@ -1,8 +1,8 @@
-import React from 'react';
-import { Formik, Form, Field } from 'formik';
+import React from "react";
+import { Formik, Form, Field } from "formik";
 
 const PatientForm = ({ initialValues, onSubmit }) => {
-    const [uploadedImage, setUploadedImage] = React.useState(null);
+  const [uploadedImage, setUploadedImage] = React.useState(null);
 
   const handleImageUpload = (event) => {
     const file = event.currentTarget.files[0];
@@ -14,17 +14,19 @@ const PatientForm = ({ initialValues, onSubmit }) => {
       reader.readAsDataURL(file);
     }
   };
-  console.log(uploadedImage)
 
   return (
     <Formik
       initialValues={initialValues}
-      onSubmit={(values) => onSubmit({...values, avatar: uploadedImage})}
+      onSubmit={(values) => onSubmit({ ...values, avatar: uploadedImage || initialValues.avatar })}
     >
       {({ isSubmitting }) => (
         <Form className="p-4 bg-white rounded shadow-md">
           <div className="mb-4">
-            <label htmlFor="name" className="block text-gray-700 font-bold mb-2">
+            <label
+              htmlFor="name"
+              className="block text-gray-700 font-bold mb-2"
+            >
               Name
             </label>
             <Field
@@ -35,8 +37,11 @@ const PatientForm = ({ initialValues, onSubmit }) => {
             />
           </div>
           <div className="mb-4">
-            <label htmlFor="description" className="block text-gray-700 font-bold mb-2">
-            Description
+            <label
+              htmlFor="description"
+              className="block text-gray-700 font-bold mb-2"
+            >
+              Description
             </label>
             <Field
               as="textarea"
@@ -48,7 +53,10 @@ const PatientForm = ({ initialValues, onSubmit }) => {
           </div>
 
           <div className="mb-4">
-            <label htmlFor="website" className="block text-gray-700 font-bold mb-2">
+            <label
+              htmlFor="website"
+              className="block text-gray-700 font-bold mb-2"
+            >
               Website
             </label>
             <Field
@@ -60,7 +68,10 @@ const PatientForm = ({ initialValues, onSubmit }) => {
           </div>
 
           <div className="mb-4">
-            <label htmlFor="photo" className="block text-gray-700 font-bold mb-2">
+            <label
+              htmlFor="photo"
+              className="block text-gray-700 font-bold mb-2"
+            >
               Avatar
             </label>
             <Field
@@ -72,15 +83,15 @@ const PatientForm = ({ initialValues, onSubmit }) => {
             />
           </div>
 
-        {uploadedImage && (
+          {uploadedImage && (
             <div className="mb-4">
-                <img
-                    src={uploadedImage}
-                    alt="Uploaded"
-                    className="w-auto h-auto max-w-20 max-h-20"
-                />
+              <img
+                src={uploadedImage}
+                alt="Uploaded"
+                className="w-auto h-auto max-w-20 max-h-20"
+              />
             </div>
-        )}
+          )}
 
           <div className="mt-6">
             <button
