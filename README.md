@@ -12,3 +12,4 @@ This is a web application for managing patient information.
 1. Start the development server: `npm start`
 2. Open the application in your browser at `http://localhost:3000`
 
+
